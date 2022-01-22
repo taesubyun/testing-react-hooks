@@ -1,6 +1,7 @@
 import { Data } from './Data';
 import { useState } from 'react';
 import CountSection from './CountSection';
+import styled from 'styled-components';
 
 const Section = () => {
     const [clicked, setClicked] = useState(false);
@@ -8,15 +9,14 @@ const Section = () => {
         setClicked((curClicked) => !curClicked);
     };
 
+    const Container = styled.div`
+        height: 100%;
+    `;
+
     const AdditionalContent = () => {
         if (clicked) {
             return (
-                <div
-                    className='container'
-                    style={{
-                        height: '100%',
-                    }}
-                >
+                <Container>
                     <div
                         className='content'
                         style={{
@@ -27,7 +27,7 @@ const Section = () => {
                         <h3>테스트 코드 h3</h3>
                         <h4>테스트 코드 h4</h4>
                     </div>
-                </div>
+                </Container>
             );
         } else {
             return null;
