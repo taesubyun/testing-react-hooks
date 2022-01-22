@@ -1,10 +1,11 @@
 import styled from 'styled-components';
+import Section from './Section';
 
 const Header = () => {
     return (
         <HeaderContainer>
             <HeaderContent>
-                <HeaderText>[스쿠버다이빙] 오픈워터 코스</HeaderText>
+                <HeaderText>테스트 코드</HeaderText>
             </HeaderContent>
         </HeaderContainer>
     );
@@ -13,17 +14,13 @@ const Header = () => {
 export default Header;
 
 const HeaderContainer = styled.div`
+    display: flex;
+    justify-content: center;
     width: 100%;
-    border: 1px solid red;
 `;
 
 const HeaderContent = styled.div`
-    display: flex;
-    justify-content: center;
-
-    border: 1px solid blue;
+    margin: 5px;
 `;
 
-const HeaderText = styled.h2`
-    font-weight: bold;
-`;
+const HeaderText = styled.h2``;

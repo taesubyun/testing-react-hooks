@@ -1,6 +1,6 @@
 import { Data } from './Data';
-// import styled from 'styled-components';
 import { useState } from 'react';
+import CountSection from './CountSection';
 
 const Section = () => {
     const [clicked, setClicked] = useState(false);
@@ -10,7 +10,25 @@ const Section = () => {
 
     const AdditionalContent = () => {
         if (clicked) {
-            return <div>클릭됐습니다.</div>;
+            return (
+                <div
+                    className='container'
+                    style={{
+                        height: '100%',
+                    }}
+                >
+                    <div
+                        className='content'
+                        style={{
+                            padding: '0 20px',
+                            height: '100%',
+                        }}
+                    >
+                        <h3>테스트 코드 h3</h3>
+                        <h4>테스트 코드 h4</h4>
+                    </div>
+                </div>
+            );
         } else {
             return null;
         }
@@ -24,7 +42,7 @@ const Section = () => {
                 boxShadow: '2px 10px 35px 1px rgba(153, 153, 153, 0.3)',
                 borderRadius: '10px',
                 height: '30vh',
-                margin: '10px 0',
+                margin: '10px 10px',
             }}
         >
             <div
@@ -33,15 +51,19 @@ const Section = () => {
                     width: '100%',
                     height: '100%',
                     justifyContent: 'center',
+                    boxSizing: 'borderBox',
+                    padding: '0 10px',
                 }}
             >
                 {Data.map((item) => {
                     return (
                         <>
                             <div className='section_content'>
-                                <h3>{item.context}</h3>
+                                <h3 style={{ color: '#CD113B' }}>
+                                    {item.context}
+                                </h3>
                             </div>
-                            <button onClick={() => onClick()}>+더보기</button>
+                            <button onClick={onClick}>+더보기</button>
                             <AdditionalContent />
                         </>
                     );
