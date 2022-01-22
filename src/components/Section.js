@@ -9,24 +9,14 @@ const Section = () => {
         setClicked((curClicked) => !curClicked);
     };
 
-    const Container = styled.div`
-        height: 100%;
-    `;
-
     const AdditionalContent = () => {
         if (clicked) {
             return (
                 <Container>
-                    <div
-                        className='content'
-                        style={{
-                            padding: '0 20px',
-                            height: '100%',
-                        }}
-                    >
-                        <h3>테스트 코드 h3</h3>
-                        <h4>테스트 코드 h4</h4>
-                    </div>
+                    <Content>
+                        <h3>테스트 코드 : h3</h3>
+                        <h4>테스트 코드 : h4</h4>
+                    </Content>
                 </Container>
             );
         } else {
@@ -35,26 +25,8 @@ const Section = () => {
     };
 
     return (
-        <div
-            className='section_container'
-            style={{
-                display: 'flex',
-                boxShadow: '2px 10px 35px 1px rgba(153, 153, 153, 0.3)',
-                borderRadius: '10px',
-                height: '30vh',
-                margin: '10px 10px',
-            }}
-        >
-            <div
-                className='section_box'
-                style={{
-                    width: '100%',
-                    height: '100%',
-                    justifyContent: 'center',
-                    boxSizing: 'borderBox',
-                    padding: '0 10px',
-                }}
-            >
+        <SectionContainer>
+            <SectionBox>
                 {Data.map((item) => {
                     return (
                         <>
@@ -68,9 +40,34 @@ const Section = () => {
                         </>
                     );
                 })}
-            </div>
-        </div>
+            </SectionBox>
+        </SectionContainer>
     );
 };
 
 export default Section;
+
+const Container = styled.div`
+    height: 100%;
+`;
+
+const Content = styled.div`
+    padding: 0 20px;
+    height: 100%;
+`;
+
+const SectionContainer = styled.div`
+    display: flex;
+    box-shadow: 2px 10px 35px 1px rgba(153, 153, 153, 0.3);
+    border-radius: 10px;
+    height: 30vh;
+    margin: 10px 10px;
+`;
+
+const SectionBox = styled.div`
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0 10px;
+`;
